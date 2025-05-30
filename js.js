@@ -55,22 +55,22 @@ var FRAMES = [
 
 var HTML = document.querySelector(".card");
 
-var doSomething = function(event, data){
+var logData = function(event, data){
     console.log(event);
     console.log(data);
     alert("FRame  up before you go go");
 };
 
-for(var count = 0; count < FRAMES.length; count++ )
+for(var i = 0; i < FRAMES.length; i++ )
 {
-    var d = FRAMES[count];
+    var a = FRAMES[i];
     var copy = HTML.cloneNode(true);
-    var x = (count % 13) + 1;
-    var y = Math.floor(count/13) + 1;
+    var x = (i % 13) + 1;
+    var y = Math.floor(i/13) + 1;
     copy.style.backgroundPositionX = (100 * (13 - (x - 1))) + "%";
     copy.style.backgroundPositionY = (100 * ((11 % y) + 1)) + "%";
-    d.suit = Math.floor(count/13);
-    d.number = count % 13; 
-    copy.addEventListener("click", (e)=>{ doSomething(e,d) } );
+    a.suit = Math.floor(i/13);
+    a.number = i % 13; 
+    copy.addEventListener("click", (e)=>{ logData(e,d) } );
     document.body.append(copy);
 }
